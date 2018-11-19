@@ -16,3 +16,19 @@ Acompaña a Sam a través de los mundos del Samsara y descubre el secreto que en
 * El juego será un reto ya que tendremos una cantidad de vida limitada (flores de loto) y estaremos en peligro constante.
 
 ![](https://github.com/BakemonShi/Samsara/blob/master/Yakuza%20Boss3.png)
+Información sobre los integrantes del equipo:
+
+**Roger Cuatrecases**  Game Designer
+* Correo/e-mail : rogerc9@outlook.es
+* ArtStation : [RogerC9](https://www.artstation.com/rogerc9)
+
+**Adria Oliver**  3D Artist
+* Correo/e-mail : adri-oliver98@hotmail.com
+* ArtStation : [Adri Oliver](https://www.artstation.com/adribboying)
+
+**Carlos Garcia**  2D Artist
+* Correo/e-mail : charlie.halfblood@gmail.com
+* ArtStation : [Charlie Garcia](https://www.artstation.com/halfblood_crow)
+
+**Ivan Martin**  Programmer
+* Correo/e-mail : 
