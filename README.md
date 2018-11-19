@@ -15,7 +15,7 @@ Acompaña a Sam a través de los mundos del Samsara y descubre el secreto que en
 * El juego usará el sistema de yin y yang para limitar el número de acciones del jugador, lo que hará más interesante el combate.
 * El juego será un reto ya que tendremos una cantidad de vida limitada (flores de loto) y estaremos en peligro constante.
 
-![](https://github.com/BakemonShi/Samsara/blob/master/Yakuza%20Boss3.png)
+![Samsara Boss](https://github.com/BakemonShi/Samsara/blob/master/ConceptArt/SenjuColor3.png)
 Información sobre los integrantes del equipo:
 
 **Roger Cuatrecases**  Game Designer
