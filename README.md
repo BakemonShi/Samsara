@@ -30,5 +30,5 @@ Información sobre los integrantes del equipo:
 * Correo/e-mail : charlie.halfblood@gmail.com
 * ArtStation : [Charlie Garcia](https://www.artstation.com/halfblood_crow)
 
-**Ivan Martin**  Programmer
-* Correo/e-mail : 
+**Ivan Martin**  Programmer///Scrum Master
+* Correo/e-mail : imartinalvarez97@gmail.com
