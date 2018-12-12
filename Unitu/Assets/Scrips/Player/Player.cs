@@ -24,13 +24,23 @@ public class Player : PhysicsCollision {
     public int lifePlayer;
     public Renderer rend;
     public Material damageMaterial;
-
     public Animator anim;
+    public GameObject healingFx;
+
+
+    [Header("Espada")]
+    public GameObject espadaAbierta;
+    public GameObject espadaCerrada;
+    public bool swordIsOpen;
+    [Header("ModeEva")]
+    public float timeModeEva;
 
     void Awake()
     {
         rend = GetComponentInChildren<Renderer>();
         lifePlayer = 5;
+        swordIsOpen = false;
+        speed = 10;
     }
 
 
@@ -54,6 +64,13 @@ public class Player : PhysicsCollision {
 
     private void Update()
     {
+        timeModeEva += Time.deltaTime;
+        if (timeModeEva >= 10)
+        {
+            dashCount = 2;
+            speed = 10;
+        }
+
         if ((isFacingRight && hAxis < 0) || (!isFacingRight && hAxis > 0)) Flip();
 
 
@@ -66,9 +83,16 @@ public class Player : PhysicsCollision {
         }
 
         //correr
-        if (!isRunning) speed = 5;
-        if (isRunning) speed = 10;
-
+        if (!isRunning)
+        {
+            
+            anim.SetTrigger("Iddle");
+        }
+        if (isRunning)
+        {
+            anim.SetTrigger("Running");
+          
+        }
         
 
             //contador del dash y cooldown
@@ -78,6 +102,13 @@ public class Player : PhysicsCollision {
             dashCounterTime = 0;
             dashCount++;
         }
+
+        if(!isFacingRight)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+            transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void StartJump()
@@ -128,13 +159,51 @@ public class Player : PhysicsCollision {
 
     public void Healing()
     {
-       
 
-        if(lifePlayer<=4)
+
+        if (lifePlayer <= 4)
 
         {
-             lifePlayer++;
+            lifePlayer++;
+            GameObject obj = Instantiate(healingFx);
+            obj.transform.rotation = Quaternion.Euler(0, 0, 0);
+            obj.transform.position = transform.position+(new Vector3 (0,0.5f,0));
+           
         }
 
+    }
+    public void CambioArma()
+    {
+
+        swordIsOpen = !swordIsOpen;
+       
+        if(swordIsOpen)
+        {
+            espadaAbierta.SetActive(true);
+            espadaCerrada.SetActive(false);
+        }
+        else if(!swordIsOpen)
+        {
+            espadaAbierta.SetActive(false);
+            espadaCerrada.SetActive(true);
+
+        }
+
+
+    }
+    public void ModeEva()
+    {
+        timeModeEva = 0;
+       
+        dashCount = 3;
+        speed = 20;
+    }
+    public void GodModeHack()
+    {
+        lifePlayer = 999;
+        dashCount = 90;
+        jumpForce = 30;
+        jumpChances = 30;
+        speed = 100;
     }
 }

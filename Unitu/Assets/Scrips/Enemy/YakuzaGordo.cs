@@ -15,7 +15,10 @@ public class YakuzaGordo : EnemigoBase
 
     public Transform transformGordo;
 
-   
+    public float lifeYakuzaGordo;
+
+
+
 
     protected override void Start()
     {
@@ -31,9 +34,9 @@ public class YakuzaGordo : EnemigoBase
         Attack();
         counterAttack += Time.deltaTime;
 
-        isBlocking=true;
+        isBlocking=false;
 
-        if (lifeEnemy == 0)
+        if (lifeYakuzaGordo == 0)
         {
 
             DeadEnemy();
@@ -77,12 +80,11 @@ public class YakuzaGordo : EnemigoBase
 
     }
    
-   public override void RecivedDamage()
+   public  void RecivedDamage()
    {
-       if(!isBlocking)
-    {
-        lifeEnemy--;
-    }
+      
+            lifeYakuzaGordo--;
+    
    }
 
     protected override void OnDrawGizmos()

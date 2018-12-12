@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public Player player;
     public Vector3 speed;
 
+    public float lifeBullet;
 
     void Start()
     {
@@ -16,16 +17,25 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        lifeBullet += Time.deltaTime;
         transform.Translate(Time.deltaTime * speed);
-    }
 
-    public void OnTriggerEnter(Collider collision)
-    {
-        if (collision.tag == "Player")
+        if(lifeBullet>=3)
         {
-            player.Damage();
             Destroy(this.gameObject);
 
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player.lifePlayer--;
+            Destroy(this.gameObject);
+            Debug.Log("pruebaDamage");
+        }
+    }
+
+   
 }

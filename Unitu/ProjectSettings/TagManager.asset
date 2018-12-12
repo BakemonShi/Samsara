@@ -8,6 +8,13 @@ TagManager:
   - HUD
   - Espada
   - Enemy
+  - Tornado
+  - TornadoBig
+  - EnemyTorreta
+  - EnemyYakuzaDebil
+  - EnemyYakuzaGordo
+  - YakuzaBoss
+  - Abanico
   layers:
   - Default
   - TransparentFX
@@ -20,9 +27,9 @@ TagManager:
   - Player
   - Ground
   - Enemy
-  - 
-  - 
-  - 
+  - Tornado
+  - Espada
+  - Abanico
   - 
   - 
   - 

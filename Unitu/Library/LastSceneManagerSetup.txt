@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenas/Mundo1Scena2.unity
+- path: Assets/Scenas/Info.unity
   isLoaded: 1
   isActive: 1

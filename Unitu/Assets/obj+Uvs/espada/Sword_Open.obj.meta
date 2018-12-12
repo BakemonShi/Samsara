@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: 294efc7ecabb32143a60c81413f637f0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: DetalleInf
+    100002: DetalleInf001
+    100004: DetalleSup
+    100006: DetalleSup001
+    100008: Guarda
+    100010: Hoja
+    100012: Hoja002
+    100014: Kanji
+    100016: Mango
+    100018: Plane001
+    100020: Plane002
+    100022: Pomo
+    100024: //RootNode
+    100026: Tornillo
+    400000: DetalleInf
+    400002: DetalleInf001
+    400004: DetalleSup
+    400006: DetalleSup001
+    400008: Guarda
+    400010: Hoja
+    400012: Hoja002
+    400014: Kanji
+    400016: Mango
+    400018: Plane001
+    400020: Plane002
+    400022: Pomo
+    400024: //RootNode
+    400026: Tornillo
+    2100000: wire_147177027
+    2100002: wire_135059008
+    2100004: wire_115115115
+    2100006: wire_176026026
+    2100008: wire_214229166
+    2300000: DetalleInf
+    2300002: DetalleInf001
+    2300004: DetalleSup
+    2300006: DetalleSup001
+    2300008: Guarda
+    2300010: Hoja
+    2300012: Hoja002
+    2300014: Kanji
+    2300016: Mango
+    2300018: Plane001
+    2300020: Plane002
+    2300022: Pomo
+    2300024: Tornillo
+    3300000: DetalleInf
+    3300002: DetalleInf001
+    3300004: DetalleSup
+    3300006: DetalleSup001
+    3300008: Guarda
+    3300010: Hoja
+    3300012: Hoja002
+    3300014: Kanji
+    3300016: Mango
+    3300018: Plane001
+    3300020: Plane002
+    3300022: Pomo
+    3300024: Tornillo
+    4300000: DetalleInf
+    4300002: DetalleInf001
+    4300004: DetalleSup
+    4300006: DetalleSup001
+    4300008: Guarda
+    4300010: Hoja
+    4300012: Hoja002
+    4300014: Kanji
+    4300016: Mango
+    4300018: Plane001
+    4300020: Plane002
+    4300022: Pomo
+    4300024: Tornillo
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

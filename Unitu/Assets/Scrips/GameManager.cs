@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     public Vector2 moveCamera;
 
 
-    private void Awake()
+    public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 

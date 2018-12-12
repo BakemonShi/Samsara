@@ -10,15 +10,38 @@ public class YakuzaDebil : EnemigoBase
 	public float counterAttack;
     public float radiusAttack;
     public LayerMask targetMaskAttack;
+    public float lifeYakuzaDebil;
+    [Header("Explosion Force")]
+    public Rigidbody rb;
+    public float power;
+    public Vector3 radiusforce;
 
-   
+    public bool isExplosion;
+    
+
 
     protected override void Start()
     {
         base.Start();
         counterAttack=0;
+        rb=GetComponent<Rigidbody>();
 
+    }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        {
+            if (isExplosion)
+            {
+                rb.MovePosition(transform.position+ radiusforce);
+              //  rb.AddForce(5, 0, 0, ForceMode.VelocityChange);
+                //rb.AddForce(5,0,0, ForceMode.Impulse);//fuerza para el dash le da un impulso
+                isExplosion = false;
+               
+            }
 
+         
+        }
     }
     protected override  void Update()
     {
@@ -26,7 +49,7 @@ public class YakuzaDebil : EnemigoBase
         Attack();
         counterAttack += Time.deltaTime;
 
-        if (lifeEnemy == 0)
+        if (lifeYakuzaDebil == 0)
         {
 
             DeadEnemy();
@@ -45,7 +68,7 @@ public class YakuzaDebil : EnemigoBase
                    
             if(i< hitColliders.Length)
             {
-                if(counterAttack>=5)
+                if(counterAttack>=3)
                 {
                     Debug.Log("yay");
                     player.lifePlayer--;
@@ -68,7 +91,8 @@ public class YakuzaDebil : EnemigoBase
 
     }
 
-    
+   
+
 
 
 }

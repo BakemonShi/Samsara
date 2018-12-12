@@ -16,7 +16,7 @@ public class EnemigoBase : MonoBehaviour {
 
 
     [Header("Enemies Properties")]
-    public float lifeEnemy;
+    
     public bool isFacingRight;
     protected bool isAttack;    
     [Header("Path Properties")]
@@ -42,7 +42,7 @@ public class EnemigoBase : MonoBehaviour {
 
       SetPatrol();
     }
-    protected void FixedUpdate()
+    protected virtual  void FixedUpdate()
     {
         //IMPORTANTE
         targetDetected = false;
@@ -55,7 +55,8 @@ public class EnemigoBase : MonoBehaviour {
     }
     protected virtual void Update()
     {
-        switch(state)
+        agent.stoppingDistance = 2;
+        switch (state)
         {
             case State.Idle:
                 IdleUpdate();
@@ -183,10 +184,7 @@ public class EnemigoBase : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-     public virtual void  RecivedDamage ()
-    {
-            lifeEnemy--;
-    }
+    
 
     protected virtual void OnDrawGizmos()
     {

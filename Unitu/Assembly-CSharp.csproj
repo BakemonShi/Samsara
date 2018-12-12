@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Info\F9ComeBack.cs" />
+    <Compile Include="Assets\Info\TranslateCamera.cs" />
     <Compile Include="Assets\ProCamera2D\3rd Party Plugins Support\PlayMakerActions\FsmStateActionProCamera2DBase.cs" />
     <Compile Include="Assets\ProCamera2D\3rd Party Plugins Support\PlayMakerActions\ProCamera2DAddCameraTargetAction.cs" />
     <Compile Include="Assets\ProCamera2D\3rd Party Plugins Support\PlayMakerActions\ProCamera2DAdjustCameraTargetInfluenceAction.cs" />
@@ -149,8 +151,6 @@
     <Compile Include="Assets\ProCamera2D\Examples\TopDownShooter\Scripts\RotateTowardsMouse.cs" />
     <Compile Include="Assets\ProCamera2D\Examples\TopDownShooter\Scripts\SwitchCameraProjection.cs" />
     <Compile Include="Assets\ProCamera2D\ProCamera2D.cs" />
-    <Compile Include="Assets\PruebaMandoPS4.cs" />
-    <Compile Include="Assets\PruebaVIda.cs" />
     <Compile Include="Assets\Scrips\CreeperBehaviour.cs" />
     <Compile Include="Assets\Scrips\Enemy\Bullet.cs" />
     <Compile Include="Assets\Scrips\Enemy\EnemigosBase.cs" />
@@ -160,14 +160,23 @@
     <Compile Include="Assets\Scrips\Enemy\YakuzaGordo.cs" />
     <Compile Include="Assets\Scrips\EntrarPuerta.cs" />
     <Compile Include="Assets\Scrips\GameManager.cs" />
-    <Compile Include="Assets\Scrips\HUD.cs" />
     <Compile Include="Assets\Scrips\MapeadoJoystick.cs" />
+    <Compile Include="Assets\Scrips\Player\Abanico.cs" />
+    <Compile Include="Assets\Scrips\Player\AttackSword.cs" />
     <Compile Include="Assets\Scrips\Player\ComboColor.cs" />
+    <Compile Include="Assets\Scrips\Player\DañoEspada.cs" />
     <Compile Include="Assets\Scrips\Player\Dash.cs" />
     <Compile Include="Assets\Scrips\Player\InputManager.cs" />
     <Compile Include="Assets\Scrips\Player\PhysicsCollision.cs" />
     <Compile Include="Assets\Scrips\Player\Player.cs" />
+    <Compile Include="Assets\Scrips\Player\TornadoBig.cs" />
+    <Compile Include="Assets\Scrips\Player\TornadoSmall.cs" />
     <Compile Include="Assets\Scrips\SceneManag.cs" />
+    <Compile Include="Assets\Scrips\UI\HUD.cs" />
+    <Compile Include="Assets\Scrips\UI\LogoFade.cs" />
+    <Compile Include="Assets\Scrips\UI\Mainmenu.cs" />
+    <Compile Include="Assets\Scrips\UI\TextoParpadeante.cs" />
+    <Compile Include="Assets\SettingsMenu.cs" />
     <None Include="Assets\ProCamera2D\Code\Helpers\TransitionFX\Resources\PC2D_Circle.shader" />
     <None Include="Assets\ProCamera2D\Code\Helpers\TransitionFX\Resources\PC2D_Wipe.shader" />
     <None Include="Assets\ProCamera2D\Code\Helpers\TransitionFX\Resources\PC2D_Texture.shader" />

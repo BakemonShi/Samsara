@@ -10,8 +10,6 @@ public class Mascara : EnemigoBase
 
         {
 
-
-
         [Header("Enemy Properties")]
         
            
@@ -19,8 +17,9 @@ public class Mascara : EnemigoBase
             public LayerMask targetMaskAttack;
             public float power = 10;
             public float upforce=1;
+            public float lifeMascara;
 
-        
+
 
             protected override void Start()
             {
@@ -34,7 +33,7 @@ public class Mascara : EnemigoBase
                 base.Update();
                 Explosion();
             
-                if (lifeEnemy == 0)
+                if (lifeMascara == 0)
                 {
                     Invoke("DeadEnemy",0.5f);
                     
@@ -61,7 +60,7 @@ public class Mascara : EnemigoBase
                        player.lifePlayer--;
 
                        rb.AddExplosionForce(power,explosionPosition,radiusAttack,upforce,ForceMode.Impulse);
-                       lifeEnemy = 0;
+                    lifeMascara = 0;
                        
                    }
                     

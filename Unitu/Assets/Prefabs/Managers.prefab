@@ -64,6 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240dd5a7caa1b914cb73d68d9b67fdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abanico: {fileID: 0}
+  espada: {fileID: 0}
+  isSword: 0
 --- !u!114 &114545230202435824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,5 +79,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPro: {fileID: 0}
-  inputManager: {fileID: 0}
+  inputManager: {fileID: 114402376388124100}
   moveCamera: {x: 350, y: 8}

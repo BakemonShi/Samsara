@@ -15,22 +15,5 @@ public class EntrarPuerta : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void OnTriggerEnter(Collider collision)
-    {
-        if (collision.tag == "Player")
-        {
-            hud.OpenKeyPanel();
-          
-        }
-    }
-    public void OnTriggerExit(Collider collision)
-    {
-        if (collision.tag == "Player")
-        {
-            hud.CloseKeyPanel();
-            
-
-
-        }
-    }
+    
 }

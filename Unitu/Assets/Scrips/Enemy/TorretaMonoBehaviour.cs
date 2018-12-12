@@ -6,6 +6,7 @@ public class TorretaMonoBehaviour : MonoBehaviour {
 
     
     public Vector3 origin;
+   
     public Vector3 direction;
     public float maxDistance;
     public LayerMask mask;
@@ -14,16 +15,22 @@ public class TorretaMonoBehaviour : MonoBehaviour {
     int i;
 
     public GameObject bullet;
+    public GameObject bulletEffects;
     public float bulletColdown;
 
-
+    
     public float lifeTorret;
+
+    private void Start()
+    {
+        lifeTorret = 5;
+    }
 
     private void Update()
     {
         bulletColdown +=Time.deltaTime;
 
-         if(lifeTorret==0)
+         if(lifeTorret<=0)
         {
                
             DeaDTorret();
@@ -47,7 +54,9 @@ public class TorretaMonoBehaviour : MonoBehaviour {
                     Debug.Log("Prueba");
                     
                     bulletColdown = 0;
-                    Instantiate(bullet, transform.position, Quaternion.identity);
+                    Instantiate(bullet, transform.position+origin, Quaternion.identity);
+                    Instantiate(bulletEffects, transform.position+origin, Quaternion.identity);
+
                 }
                 
                 
@@ -63,6 +72,11 @@ public class TorretaMonoBehaviour : MonoBehaviour {
     {
              Destroy(this.gameObject);      
 
+    }
+
+    public void RecivedDamageTurret()
+    {
+        lifeTorret--;
     }
     private void OnDrawGizmos()
     {
