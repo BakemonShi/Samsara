@@ -30,6 +30,7 @@ public class EnemigoBase : MonoBehaviour {
     public float radius;
     public bool targetDetected;
     public Transform targetTransform;
+  
 
     protected virtual void Start()
     {

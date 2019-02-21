@@ -15,6 +15,7 @@ TagManager:
   - EnemyYakuzaGordo
   - YakuzaBoss
   - Abanico
+  - RomperSuelo
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Tornado
   - Espada
   - Abanico
-  - 
+  - Boss
   - 
   - 
   - 

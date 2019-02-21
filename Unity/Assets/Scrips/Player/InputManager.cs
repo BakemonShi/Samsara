@@ -6,12 +6,12 @@ public class InputManager : MonoBehaviour
 {
     private Player player;
     public Abanico abanico;
-    public ComboColor espada;
-    private GameManager gameManager;
+    public AttackSword sword;
+    private GameManager gm;
 
     private HUD hud;
 
-    public bool isSword;
+    
 
     private bool isPause=false;
 
@@ -19,117 +19,92 @@ public class InputManager : MonoBehaviour
 
     //
     // Use this for initialization
-    void Start()
+    public void Initialize(GameManager gameManager)
     {
-        gameManager = GetComponent<GameManager>();
+        gm = gameManager;
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
       
 
         hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-        isSword = true;
+        
     }
 
     // Update is called once per frame
-    void Update()
+    public void MyUpdate()
     {
         float hAxis = Input.GetAxis("Horizontal");
 
 
+
         player.SetHorizontalAxis(hAxis);
 
-        if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
+      
+          if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
         {
-            player.StartJump();
+         //   player.Jump();
         }
-        //correr 
-        if (Input.GetButtonDown("Fire3"))
+       
+
+        if (Input.GetKeyDown(KeyCode.J) || (Input.GetButtonDown("Quadrado")))
         {
-            player.isRunning = true;
-        }
-       if  (Input.GetKeyDown(KeyCode.J) || (Input.GetButtonDown("Quadrado")))
-        {
-            if (isSword)
-            {
-               espada.AttackSwordWeak();
-            }
-             if(!isSword)
-            {
-                abanico.AutoAttack();
-            }
+            player.AttackBasic();
+
         }
 
-        //caminar
-        if (Input.GetButtonUp("Fire3"))
-        {
-            player.isRunning = false;
-        }
         if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetButtonDown("R1"))) //dash
         {
-            player.DashSpeed();
+            player.Dash();
         }
-        if ((Input.GetKeyDown(KeyCode.Q)) || (Input.GetButtonDown("L2"))) //dash
-        {
-            //modo deva
-            player.ModeEva();
-        }
-        //GoleFuerte
-        if (Input.GetButtonDown("Triangulo")|| (Input.GetKeyDown(KeyCode.K)))
-        {
-                if (!isSword)
+            if ((Input.GetKeyDown(KeyCode.Q)) || (Input.GetButtonDown("L2"))) //dash
             {
-                abanico.AttackBig();
+                //modo deva
+                player.ModeEva();
             }
-        }
-        //CambioArma
-        if (Input.GetButtonDown("R2") || (Input.GetKeyDown(KeyCode.Tab)))
-              {
-                  player.CambioArma();
-                  isSword = !isSword;
-            if (isSword)
+            //GoleFuerte
+            if (Input.GetButtonDown("Triangulo") || (Input.GetKeyDown(KeyCode.K)))
             {
-                hud.OpenSwordPanel();
-            }
-            else
-                hud.CloseSwordPanel();
-                    
+              
+                player.AttackHeavy();
+        }   
+            //CambioArma
+            if (Input.GetButtonDown("R2") || (Input.GetKeyDown(KeyCode.Tab)))
+            {
+                player.CambioArma();
 
-              }    //Currar por ahora
-        if (Input.GetButtonDown("L1")|| (Input.GetKeyDown(KeyCode.O)))
-        {
-            player.Healing();
-            if (player.lifePlayer == 5)
-            {
-                hud.OpenFullHP();
             }
-        }
-        if (Input.GetButtonDown("Start") || (Input.GetKeyDown(KeyCode.Escape)))
-        {
-            Debug.Log("Pulsar Escape");
-            if(!isPause)
+            //Currar por ahora
+            if (Input.GetButtonDown("L1") || (Input.GetKeyDown(KeyCode.O)))
             {
+                player.SetHealing();
                
-                hud.OpenPausePanel();
-                isPause = true;
-                Time.timeScale = 0;
+               
             }
-            else if (isPause)
-                
+            if (Input.GetButtonDown("Start") || (Input.GetKeyDown(KeyCode.Escape)))
             {
-                Time.timeScale = 1;
+                Debug.Log("Pulsar Escape");
+                if (!isPause)
+                {
 
-                hud.ClosePausePanel();
-                isPause = false;
+                    hud.OpenPausePanel();
+                    isPause = true;
+                    Time.timeScale = 0;
+                }
+                else if (isPause)
+
+                {
+                    Time.timeScale = 1;
+
+                    hud.ClosePausePanel();
+                    isPause = false;
+                }
+
             }
+            
+
+
 
         }
-        if (Input.GetButtonDown("Select") || (Input.GetKeyDown(KeyCode.F10)))
-        {
-            player.GodModeHack();
-            Debug.Log("GodMode");
-        }
-
-
-
     }
-}
+
+

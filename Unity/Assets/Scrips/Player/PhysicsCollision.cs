@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PhysicsCollision : MonoBehaviour {
     //
-    protected Rigidbody rb;
+    protected GameManager gm;
+    public Rigidbody rb;
+    
 
     [Header("Physics properties")]
     public float gravityMagnitude = 1;
-    protected Rigidbody rbb;
+    public bool disable = false;
 
     [Header("Ground Checker")]
     public Vector3 groundOrigin;
@@ -40,15 +42,19 @@ public class PhysicsCollision : MonoBehaviour {
     public bool justNotTouchWall;
     public bool isFacingRight;
 
-    protected virtual void Start()
+    public virtual void Initialize(GameManager gameManager)
     {
+        gm = gameManager;
+
         rb = GetComponent<Rigidbody>();
         isFacingRight = true;
     }
-    protected virtual void FixedUpdate()
+    public virtual void MyFixedUpdate()
     {
         rb.AddForce(Physics.gravity * gravityMagnitude, ForceMode.Acceleration);
         //aplica gravedad
+
+        if (disable) return;
         CheckGround();
         CheckWall();
     }
@@ -63,7 +69,7 @@ public class PhysicsCollision : MonoBehaviour {
         Vector3 rayPos = transform.position + groundOrigin;
         int sing = 1;
 
-        for (i = 0; i <= groundNumRay; i++)
+        for (i = 0; i <= groundNumRay-1; i++)
         {
             RaycastHit hit;
             Ray ray = new Ray(rayPos, groundDirection);
@@ -125,6 +131,11 @@ public class PhysicsCollision : MonoBehaviour {
 
     }
 
+    protected void DisableChecker(float sec)
+    {
+        StartCoroutine(DisableCollisionDetection(sec));
+    }
+
     private void OnDrawGizmos()
     {
         DrawRayGround();
@@ -159,5 +170,12 @@ public class PhysicsCollision : MonoBehaviour {
             rayPos.y += sing * ((i + 1) * wallDistBtRay);
             sing *= -1;
         }
+    }
+    
+    IEnumerator DisableCollisionDetection(float time)
+    {
+        disable = true;
+        yield return new WaitForSeconds(time);
+        disable = false;
     }
 }

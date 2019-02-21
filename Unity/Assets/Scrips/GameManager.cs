@@ -1,38 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Com.LuisPedroFonseca.ProCamera2D;
+
 
 public class GameManager : MonoBehaviour {
 
 
-    public ProCamera2D cameraPro;
+ 
     private Player player; 
     public InputManager inputManager;
-    private HUD hud;
+    public HUD Hud { get; private set; }
 
     public Vector2 moveCamera;
 
 
+    public bool isPaused = false;
+
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.Initialize(this);
 
         inputManager = GetComponent<InputManager>();
-        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-    }
+        inputManager.Initialize(this);
 
-    public void PressKeyT()
-    {
-        player.transform.Translate(-20, 9, 10);
-        cameraPro.MoveCameraInstantlyToPosition(moveCamera);
-
-    }
-     void Update()
-    {
-       
+        Hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
     }
 
    
+     void Update()
+    {
+        if (!isPaused)
+        {
+            player.MyUpdate();
+            inputManager.MyUpdate();
+        }
+        //else inputManager.ResumeUpdate();
+
+    }
+
+    private void FixedUpdate()
+    {
+        player.MyFixedUpdate();
+    }
+
+
 
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenas/Info.unity
+- path: Assets/Scenas/4Ciudad.unity
   isLoaded: 1
   isActive: 1

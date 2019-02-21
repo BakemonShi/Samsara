@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class TornadoSmall : MonoBehaviour
 {
 
     public Vector3 speed;
+    public float lifeShot;
 
-    public float power;
+    public float radius = 5.0F;
+    public float power = 10.0F;
+    public float upForce = 1.0f;
 
-    public float radius;
-
-    public YakuzaDebil yakuzaDebil;
-
-   
+    private Player player;
+    private Rigidbody rb;
+    private YakuzaDebil yakuzaDebil;
 
 
     void Start()
     {
-     
+        rb = GameObject.FindGameObjectWithTag("EnemyYakuzaDebil").GetComponent<Rigidbody>();
+        yakuzaDebil = GameObject.FindGameObjectWithTag("EnemyYakuzaDebil").GetComponent<YakuzaDebil>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
 
     }
@@ -26,13 +31,15 @@ public class TornadoSmall : MonoBehaviour
     void Update()
     {
 
-
         transform.Translate(speed * Time.deltaTime);
+
+        lifeShot += Time.deltaTime;
+        if (lifeShot >= 2) DesapareceAire();
 
 
     }
 
-    
+
     private void DesapareceAire()
     {
 
@@ -40,15 +47,27 @@ public class TornadoSmall : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter (Collider collider)
+    public void OnTriggerEnter(Collider collider)
     {
-        
-            if (collider.tag == "EnemyYakzuzaDebil")
-            {
-            yakuzaDebil.isExplosion = true;
-                Debug.Log("PruebaSmall");
+
+        if (collider.tag == "EnemyYakuzaDebil")
+        {
+            Explode();
+            Debug.Log("PruebaSmall");
             DesapareceAire();
+            yakuzaDebil.isStun = true;
 
         }
+    }
+    void Explode()
+    {
+        Debug.Log("PruebaExplode");
+
+        Vector3 explosionPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+
+        rb.AddExplosionForce(power, explosionPos, radius, upForce, ForceMode.Impulse);
+
     }
 }
