@@ -11,13 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenas/2Menu.unity
     guid: 9d1e0521400d6314bb7be42a4756421d
-  - enabled: 0
-    path: Assets/Scenas/Mundo1Scena1.unity
-    guid: 5f5c4569fb727bc469f059f9431b0bf9
-  - enabled: 1
-    path: Assets/Scenas/Info.unity
-    guid: 159b9a91973839f4b84d293241c3cb92
   - enabled: 1
     path: Assets/Scenas/3Tutorial.unity
     guid: 60a6dd9381015e546946673debaa3354
+  - enabled: 1
+    path: Assets/Scenas/4Ciudad.unity
+    guid: 22cdf13dbac78c14480e6bfa6daadef6
+  - enabled: 1
+    path: Assets/Scenas/5Subsuelo.unity
+    guid: 5ab9a56640f40324aa28d074731ccd7b
+  - enabled: 1
+    path: Assets/Scenas/6Edficio.unity
+    guid: cf85fa0431f51134b8b53131c3dc6185
+  - enabled: 1
+    path: Assets/Scenas/7Boss.unity
+    guid: 23dfb1e32350b78479da740e439ce4f9
   m_configObjects: {}

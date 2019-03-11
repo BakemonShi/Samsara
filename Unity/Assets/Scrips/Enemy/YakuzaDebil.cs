@@ -34,7 +34,7 @@ public class YakuzaDebil : EnemigoBase
 
         if (lifeYakuzaDebil <= 0)
         {
-
+            lifeYakuzaDebil = 0;
             DeadEnemy();
         }
         if (isStun)

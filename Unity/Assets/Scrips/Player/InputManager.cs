@@ -33,14 +33,22 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     public void MyUpdate()
     {
-        float hAxis = Input.GetAxis("Horizontal");
 
 
 
-        player.SetHorizontalAxis(hAxis);
+        if (Input.GetKey(KeyCode.D))
+        {
+            player.SetHorizontalRight();
 
-      
-          if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            player.SetHorizontalLeft();
+
+        }
+
+        
+        if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
         {
          //   player.Jump();
         }
@@ -56,11 +64,7 @@ public class InputManager : MonoBehaviour
         {
             player.Dash();
         }
-            if ((Input.GetKeyDown(KeyCode.Q)) || (Input.GetButtonDown("L2"))) //dash
-            {
-                //modo deva
-                player.ModeEva();
-            }
+           
             //GoleFuerte
             if (Input.GetButtonDown("Triangulo") || (Input.GetKeyDown(KeyCode.K)))
             {

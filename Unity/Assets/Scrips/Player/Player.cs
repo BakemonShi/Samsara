@@ -18,11 +18,9 @@ public class Player : PhysicsCollision {
 
     [Header("Properties")]
     public GameObject inputManager;
-    public float speed;
+    public Vector3 speed;
     public bool isWalking = false;
-    private float hAxis;
-    private float hVelocity;
-    public float counterDissable;
+    public float counterDissable=0;
 
     [Header("Jump")]
     public bool jump;
@@ -75,7 +73,7 @@ public class Player : PhysicsCollision {
 
         lifePlayer = 5;
         isSword = true;
-        speed = 10;
+        speed.x = 10;
        
         abanico.Initialize();
 
@@ -87,11 +85,7 @@ public class Player : PhysicsCollision {
     {
         base.MyFixedUpdate();
         
-        if (isWalking)
-        {
-        
-            rb.velocity = new Vector3(hVelocity, rb.velocity.y, 0);
-        }
+       
 
     }
 
@@ -127,12 +121,14 @@ public class Player : PhysicsCollision {
     void DefaultUpdate()
     {
        animationAttack+=Time.deltaTime;
-        if(animationAttack>1)
+      if(Input.GetKey(KeyCode.L))
         {
-          
+            ArreglarAnimacion();
+        }
 
-
-          //  attackType = 0;
+        if (animationAttack>1)
+        {
+                   //  attackType = 0;
             anim.SetBool("Running",true);
         
         }
@@ -171,20 +167,20 @@ public class Player : PhysicsCollision {
             }
         
 
-        if ((isFacingRight && hAxis < 0) || (!isFacingRight && hAxis > 0)) Flip();
+       // if ((isFacingRight && hAxis < 0) || (!isFacingRight && hAxis > 0)) Flip();
 
 
-        hVelocity = hAxis * speed;
-        if (isTouchingWall)
+       
+        if(isWalking)
+
         {
-            //al tocar una pared se detiene;
-            if ((isFacingRight && hAxis > 0) || (!isFacingRight && hAxis < 0)) hVelocity = 0;
-
+          
         }
-             
+
         if (!isFacingRight)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+
         }
         else
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -192,22 +188,32 @@ public class Player : PhysicsCollision {
 
         
     }
-    public void SetHorizontalAxis(float h)
+    public void SetHorizontalRight()
     {
-        hAxis = h;
-        // anim.SetTrigger("Running");
+        isFacingRight = true;
+        speed.x = 5;
+
+        transform.Translate(speed * Time.deltaTime);
 
     }
-  
-   public  void HealingUpdate()
+    public void SetHorizontalLeft()
     {
+        isFacingRight = false;
+        speed.x = -5;
+        transform.Translate(speed*-1 * Time.deltaTime);
+        
+
+    }
+
+    public  void HealingUpdate()
+    {
+       
         Debug.Log("PruebaUpdateHealing");
         counterDissable += Time.deltaTime;
-        if (counterDissable >= 4)
+        if (counterDissable > 4)
         {
             inputManager.SetActive(true);
             state = State.Default;
-
 
         }
 
@@ -333,25 +339,22 @@ public void Dash()
             
 
         }
-        if ((!isSword)&& (manaYin >= 20))
-            
+        if (!isSword)            
         {
-            manaYin= manaYin - 20;
-
             abanico.AutoAttack();
         }
     }
     public void AttackHeavy()
     {
-        if ((isSword) && (manaYin >= 50))
+        if (isSword) 
         {
-            manaYin = manaYin - 50;
+           
             //golpe Fuerte
         }
-        if ((!isSword) && (manaYin >= 70))
+        if (!isSword)
 
         {
-            manaYin = manaYin - 70;
+           
 
             abanico.AttackBig();
         }
@@ -376,25 +379,21 @@ public void Dash()
             gm.Hud.OpenFullHP();
         }
 
-        if ((lifePlayer <= 4) && (manaYang >= 10))
-
+        if (lifePlayer <= 4) 
         {
-            DissabledController();
-            manaYang -= 10;
+            //DissabledController();
+        
             lifePlayer++;
             GameObject obj = Instantiate(healingFx);
             obj.transform.rotation = Quaternion.Euler(0, 0, 0);
-            obj.transform.position = transform.position + (new Vector3(0, 0.5f, 0));
-            state = State.Healing;
+            obj.transform.position = transform.position + (new Vector3(0, -0.5f, 0));
+           
             anim.SetTrigger("Heal");
+
 
             
             state = State.Healing;
-
-
         }
-
-
     }
     public void SetDash()
     {
@@ -416,19 +415,8 @@ public void Dash()
        
 
     }
-    public void ModeEva()//tengo que meterla en un estado
-    {
-        timeModeEva += Time.deltaTime;//Tiempo que drua el modo eva
-        if (timeModeEva >= 10)
-        {
-            dashCount = 2;
-            speed = 10;
-        }
-        timeModeEva = 0;
-       
-        dashCount = 3;
-        speed = 20;
-    }
+   
+    
     public void ContadoresTimes()
     {
         dashCounterTime += Time.deltaTime;//el coldown del dash 
@@ -449,5 +437,14 @@ public void Dash()
     {
         lifePlayer = 999;
         
+    }
+    public void ArreglarAnimacion ()
+    {
+
+        anim.SetBool("Running", true);
+        anim.SetInteger("Attack", 0);
+        anim.SetTrigger("Fall");
+
+
     }
 }

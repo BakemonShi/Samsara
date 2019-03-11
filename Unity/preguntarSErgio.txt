@@ -1,0 +1,3 @@
+Animaciones de sam espada se quedan clabadas
+No se me vuelve activar el inputManager
+
