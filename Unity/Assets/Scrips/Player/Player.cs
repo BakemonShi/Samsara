@@ -132,38 +132,51 @@ public class Player : PhysicsCollision {
             anim.SetBool("Running",true);
         
         }
-            if (isGrounded==true && Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            anim.SetTrigger("Fall");
+            isJumping = false;
+            jumpForce = 0;
+            jumpTime = 0;
+        }
+      
+    
+        if (isGrounded==true && Input.GetKeyDown(KeyCode.Space))
             {
-                isJumping = true;
-                jumpTimeCounter = jumpTime;
-                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                anim.SetTrigger("Jump");
+            jumpForce = 6;
+            jumpTime = 0.25f;
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            anim.SetTrigger("Jump");
         }
 
             if (Input.GetKey(KeyCode.Space) && isJumping == true)
             {
-               if(jumpTimeCounter>0)
+               if(jumpTimeCounter > 0)
 
                 {
-                    rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                    jumpTimeCounter -= Time.deltaTime;
+                    jumpForce = 30;
+
+                   // rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+                        jumpTimeCounter -= Time.deltaTime;
 
                 }
-                else
+                else 
                 {
-                anim.SetTrigger("Fall");
+                    jumpForce = 0;
+                    jumpTime = 0;
 
-                isJumping = false;
+                    anim.SetTrigger("Fall");
+                    isGrounded = false;
+               
                 }
-                if (Input.GetKeyUp(KeyCode.Space))
-                {
-                anim.SetTrigger("Fall");
-
-                isJumping = false;
-                }
-
+             
             }
         
 
