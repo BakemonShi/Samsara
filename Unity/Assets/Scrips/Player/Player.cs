@@ -309,14 +309,14 @@ public void Dash()
             {
             //animacion
             animSword.SetBool("isSword", true);
-                gm.Hud.OpenSwordPanel();
+               
                 
             }
              if (!isSword)
             {
             animSword.SetBool("isSword", false);
             //animacion
-            gm.Hud.CloseSwordPanel();
+          
               
             }
 
