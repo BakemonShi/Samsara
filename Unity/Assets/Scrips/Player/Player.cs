@@ -132,51 +132,38 @@ public class Player : PhysicsCollision {
             anim.SetBool("Running",true);
         
         }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            anim.SetTrigger("Fall");
-            isJumping = false;
-            jumpForce = 0;
-            jumpTime = 0;
-        }
-      
-    
-        if (isGrounded==true && Input.GetKeyDown(KeyCode.Space))
+            if (isGrounded==true && Input.GetKeyDown(KeyCode.Space))
             {
-            jumpForce = 6;
-            jumpTime = 0.25f;
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            anim.SetTrigger("Jump");
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                anim.SetTrigger("Jump");
         }
 
             if (Input.GetKey(KeyCode.Space) && isJumping == true)
             {
-               if(jumpTimeCounter > 0)
+               if(jumpTimeCounter>0)
 
                 {
-                    jumpForce = 30;
-
-                   // rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-                    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
-                        jumpTimeCounter -= Time.deltaTime;
+                    rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    jumpTimeCounter -= Time.deltaTime;
 
                 }
-                else 
+                else
                 {
-                    jumpForce = 0;
-                    jumpTime = 0;
+                anim.SetTrigger("Fall");
 
-                    anim.SetTrigger("Fall");
-                    isGrounded = false;
-               
+                isJumping = false;
                 }
-             
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                anim.SetTrigger("Fall");
+
+                isJumping = false;
+                }
+
             }
         
 
@@ -309,14 +296,14 @@ public void Dash()
             {
             //animacion
             animSword.SetBool("isSword", true);
-               
+                gm.Hud.OpenSwordPanel();
                 
             }
              if (!isSword)
             {
             animSword.SetBool("isSword", false);
             //animacion
-          
+            gm.Hud.CloseSwordPanel();
               
             }
 
