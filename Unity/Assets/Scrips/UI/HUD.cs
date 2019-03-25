@@ -9,17 +9,14 @@ public class HUD : MonoBehaviour
     public Player player;
 
     //public GameObject floresVidas;
-   public GameObject[] floresVidas;
+   public GameObject[] vidaMuerte;
 
-    public GameObject lostGame;
-    public GameObject winGame;
-
+ 
     public GameObject fullHp;
 
     public GameObject pausePanel;
 
-    public GameObject espadaCuadro;
-
+    
     public float countFullHp;
     
 
@@ -36,33 +33,12 @@ public class HUD : MonoBehaviour
         {
             CloseFullHP();
         }
-        flowersLife();
+        deadLife();
 
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-         winGame.SetActive(true);
-          
-        }
+       
     }
     
-    public void OpenLostPanel()
-    {
-        lostGame.SetActive(true);
-    }
-
-    public void CloseLostPanel()
-    {
-        lostGame.SetActive(false);
-    }
-    public void OpenWinPanel()
-    {
-        winGame.SetActive(true);
-    }
-
-    public void CloseWinPanel()
-    {
-        winGame.SetActive(false);
-    }
+    
     public void OpenFullHP()
     {
         countFullHp = 0;
@@ -83,72 +59,75 @@ public class HUD : MonoBehaviour
     {
         pausePanel.SetActive(false);
     }
-    public void OpenSwordPanel()
-    {
-        espadaCuadro.SetActive(true);
-    }
-    public void CloseSwordPanel()
-    {
-        espadaCuadro.SetActive(false);
-    }
-
-
-
-    public void flowersLife()
+    
+   
+    public void deadLife()
     {
 
+        if (player.lifePlayer == 6)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(false);
+            vidaMuerte[0].SetActive(false);
+            //floresVidas[].SetActive(false);//preguntar a SErgio como cojer toda la aaray de gople
+        }
         if (player.lifePlayer == 5)
 
         {
-            floresVidas[4].SetActive(true);
-            floresVidas[3].SetActive(true);
-            floresVidas[2].SetActive(true);
-            floresVidas[1].SetActive(true);
-            floresVidas[0].SetActive(true);
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(false);
+            vidaMuerte[0].SetActive(true);
             //floresVidas[].SetActive(false);//preguntar a SErgio como cojer toda la aaray de gople
         }
         else if (player.lifePlayer == 4)
 
         {
 
-            floresVidas[4].SetActive(false);
-            floresVidas[3].SetActive(true);
-            floresVidas[2].SetActive(true);
-            floresVidas[1].SetActive(true);
-            floresVidas[0].SetActive(true);
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
         }
         else if (player.lifePlayer == 3)
 
         {
-            floresVidas[4].SetActive(false);
-            floresVidas[3].SetActive(false);
-            floresVidas[2].SetActive(true);
-            floresVidas[1].SetActive(true);
-            floresVidas[0].SetActive(true);
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
         }
         else if (player.lifePlayer == 2)
 
         {
-            floresVidas[4].SetActive(false);
-            floresVidas[3].SetActive(false);
-            floresVidas[2].SetActive(false);
-            floresVidas[1].SetActive(true);
-            floresVidas[0].SetActive(true);
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(true);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
         }
         else if (player.lifePlayer == 1)
 
         {
-            floresVidas[4].SetActive(false);
-            floresVidas[3].SetActive(false);
-            floresVidas[2].SetActive(false);
-            floresVidas[1].SetActive(false);
-            floresVidas[0].SetActive(true);
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(true);
+            vidaMuerte[3].SetActive(true);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
         }
-        else if (player.lifePlayer == 0)
-
-        {
-            OpenLostPanel();
-        }
+       
 
 
 

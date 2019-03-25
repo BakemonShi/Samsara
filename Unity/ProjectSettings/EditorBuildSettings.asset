@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenas/2Menu.unity
     guid: 9d1e0521400d6314bb7be42a4756421d
   - enabled: 1
-    path: Assets/Scenas/3Tutorial.unity
+    path: Assets/Scenas/3Tutorial2.unity
     guid: 60a6dd9381015e546946673debaa3354
   - enabled: 1
     path: Assets/Scenas/4Ciudad.unity
