@@ -12,10 +12,7 @@ public class Player : PhysicsCollision {
     public enum State {Default, Dash,Healing, Death }; // Default, Dash, Healing, Death
     public State state;
 
-    [Header("Energia")]
-    public float manaYin=100;
-    public float manaYang =30;
-
+  
     [Header("Properties")]
     public GameObject inputManager;
     public Vector3 speed;
@@ -34,15 +31,12 @@ public class Player : PhysicsCollision {
     public float dashSpeed;
     public float dashTime;
     public float startDashTime;
-    public int dashCount;
-    public float dashCounterTime;
-    public float coldownDash;
-    [Header("Healing")]
-    public float counterTimeHealing=0;
+  
+
     [Header("Stats")]
     public int lifePlayer;
     public Animator anim;
-    public GameObject healingFx;
+ 
 
 
     [Header("Arma")]
@@ -51,17 +45,11 @@ public class Player : PhysicsCollision {
     public Abanico abanico;
     public AttackSword attackSword;
 
-    [Header("CambioArma")]
-    public float counterCambioArma;
-    public bool cambioArma = false;
-    public float couldownCambioArma;
-    public bool isSword;
-    [Header("CambioArma")]
+
+    [Header("Ataque")]
 
     public int attackType;
     public float animationAttack;
-    [Header("ModeEva")]
-    public float timeModeEva;
 
 
 
@@ -72,7 +60,7 @@ public class Player : PhysicsCollision {
         rb = GetComponent<Rigidbody>();
 
         lifePlayer = 5;
-        isSword = true;
+
         speed.x = 10;
        
         abanico.Initialize();
@@ -85,8 +73,6 @@ public class Player : PhysicsCollision {
     {
         base.MyFixedUpdate();
         
-       
-
     }
 
     public void MyUpdate()
@@ -112,9 +98,6 @@ public class Player : PhysicsCollision {
                 break;
         }
     
-       // WalkUpdate();
-        ContadoresTimes();
-       
     }
 
    
@@ -159,10 +142,7 @@ public class Player : PhysicsCollision {
 
                 {
                     jumpForce = 30;
-
-                   // rb.velocity = new Vector3(rb.velocity.x, 0, 0);
-                    //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
+                
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
                         jumpTimeCounter -= Time.deltaTime;
 
@@ -180,14 +160,11 @@ public class Player : PhysicsCollision {
             }
         
 
-       // if ((isFacingRight && hAxis < 0) || (!isFacingRight && hAxis > 0)) Flip();
-
-
        
-        if(isWalking)
+        if(!isWalking)
 
         {
-          
+            anim.SetTrigger("Iddle");
         }
 
         if (!isFacingRight)
@@ -205,12 +182,15 @@ public class Player : PhysicsCollision {
     {
         isFacingRight = true;
         speed.x = 5;
+        anim.SetTrigger("Runnig");
 
         transform.Translate(speed * Time.deltaTime);
 
     }
     public void SetHorizontalLeft()
     {
+        anim.SetTrigger("Runnig");
+
         isFacingRight = false;
         speed.x = -5;
         transform.Translate(speed*-1 * Time.deltaTime);
@@ -230,35 +210,20 @@ public class Player : PhysicsCollision {
 
         }
 
-        counterTimeHealing += Time.deltaTime;
-        if(counterTimeHealing>5)
-        {
-            state =State.Default;
-        }
-       
+      
     }
    
 
 public void Dash()
     {
-        
-        if (dashCount > 0)
-        {
-            dashCount--;
+       
             dashTime = startDashTime;
             rb.velocity = Vector2.zero;
             rb.useGravity = false;
 
             isWalking = false;
             SetDash();
-
-
-        }
-        else
-            state = State.Default;
-
-        // Animaciones, sonidos, activar el estado dash
-
+        
     }
     
     public void DashUpdate()
@@ -301,34 +266,13 @@ public void Dash()
     }
 
      
-    public void CambioArma()
-    {
-       
-        isSword = !isSword;
-        if (isSword)
-            {
-            //animacion
-            animSword.SetBool("isSword", true);
-               
-                
-            }
-             if (!isSword)
-            {
-            animSword.SetBool("isSword", false);
-            //animacion
-          
-              
-            }
-
-        
-       
-    }
+    
 
     public void AttackBasic()
     {
         anim.SetBool("Running", false);
         
-        if ((isSword)&&(attackType==1))
+        if (attackType==1)
         {
             attackType=2;
             attackSword.espadaCollider();
@@ -336,7 +280,7 @@ public void Dash()
            
 
         }
-        else if((isSword)&&(attackType==2))
+        else if(attackType==2)
         {
             attackType=3;
             attackSword.espadaCollider();
@@ -344,7 +288,7 @@ public void Dash()
             
 
         }
-        else if((isSword)&&(attackType==3))
+        else if(attackType==3)
         {
             attackType=1;
             attackSword.espadaCollider();
@@ -352,26 +296,9 @@ public void Dash()
             
 
         }
-        if (!isSword)            
-        {
-            abanico.AutoAttack();
-        }
+       
     }
-    public void AttackHeavy()
-    {
-        if (isSword) 
-        {
-           
-            //golpe Fuerte
-        }
-        if (!isSword)
-
-        {
-           
-
-            abanico.AttackBig();
-        }
-    }
+   
 
     #region Sets
 
@@ -383,31 +310,7 @@ public void Dash()
         state = State.Default;
 
     }
-    public void SetHealing()
-    {
-        anim.SetBool("Running", false);
-
-        if (lifePlayer == 5)
-        {
-            gm.Hud.OpenFullHP();
-        }
-
-        if (lifePlayer <= 4) 
-        {
-            //DissabledController();
-        
-            lifePlayer++;
-            GameObject obj = Instantiate(healingFx);
-            obj.transform.rotation = Quaternion.Euler(0, 0, 0);
-            obj.transform.position = transform.position + (new Vector3(0, -0.5f, 0));
-           
-            anim.SetTrigger("Heal");
-
-
-            
-            state = State.Healing;
-        }
-    }
+   
     public void SetDash()
     {
         anim.SetBool("Running", false);
@@ -430,22 +333,7 @@ public void Dash()
     }
    
     
-    public void ContadoresTimes()
-    {
-        dashCounterTime += Time.deltaTime;//el coldown del dash 
-        counterCambioArma += Time.deltaTime;//Contador para cambiar de arma 
-        
-        manaYin += Time.deltaTime*5;
-        if (dashCounterTime >= coldownDash)//Preguntar a Sergio SI poner aqui
-        {
-            dashCounterTime = 0;
-            dashCount++;
-        }
-       
-
-
-
-    }
+   
     public void GodModeHack()
     {
         lifePlayer = 999;

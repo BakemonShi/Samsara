@@ -39,15 +39,29 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             player.SetHorizontalRight();
+            player.isWalking = true;
 
         }
         if (Input.GetKey(KeyCode.A))
         {
             player.SetHorizontalLeft();
+            player.isWalking = true;
+
+
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            player.isWalking = false;
+
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            player.isWalking = false;
+
 
         }
 
-        
+
         if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
         {
          //   player.Jump();
@@ -65,25 +79,9 @@ public class InputManager : MonoBehaviour
             player.Dash();
         }
            
-            //GoleFuerte
-            if (Input.GetButtonDown("Triangulo") || (Input.GetKeyDown(KeyCode.K)))
-            {
-              
-                player.AttackHeavy();
-        }   
-            //CambioArma
-            if (Input.GetButtonDown("R2") || (Input.GetKeyDown(KeyCode.Tab)))
-            {
-                player.CambioArma();
-
-            }
-            //Currar por ahora
-            if (Input.GetButtonDown("L1") || (Input.GetKeyDown(KeyCode.O)))
-            {
-                player.SetHealing();
-               
-               
-            }
+            
+          
+           
             if (Input.GetButtonDown("Start") || (Input.GetKeyDown(KeyCode.Escape)))
             {
                 Debug.Log("Pulsar Escape");
