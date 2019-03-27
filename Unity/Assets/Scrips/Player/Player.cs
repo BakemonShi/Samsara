@@ -9,7 +9,7 @@ public class Player : PhysicsCollision {
      * Que el tornado solo va en una direcion(No lo e probado)
      * */
 
-    public enum State {Default, Dash,Healing, Death }; // Default, Dash, Healing, Death
+    public enum State {Default, Dash, Death }; // Default, Dash, Healing, Death
     public State state;
 
   
@@ -68,7 +68,6 @@ public class Player : PhysicsCollision {
     }
 
 
-
     public override void MyFixedUpdate()
     {
         base.MyFixedUpdate();
@@ -87,10 +86,7 @@ public class Player : PhysicsCollision {
             case State.Dash:
                 DashUpdate();
                 break;
-            case State.Healing:
-                HealingUpdate();
-                break;
-
+           
             case State.Death:
                 DeathUpdate();
                 break;
@@ -104,14 +100,11 @@ public class Player : PhysicsCollision {
     void DefaultUpdate()
     {
        animationAttack+=Time.deltaTime;
-      if(Input.GetKey(KeyCode.L))
-        {
-            ArreglarAnimacion();
-        }
+
 
         if (animationAttack>1)
         {
-                   //  attackType = 0;
+                  
             anim.SetBool("Running",true);
         
         }
@@ -133,18 +126,19 @@ public class Player : PhysicsCollision {
             jumpTimeCounter = jumpTime;
             rb.velocity = new Vector3(rb.velocity.x, 0, 0);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            anim.SetTrigger("Jump");
+            anim.SetTrigger("isJump");
         }
 
             if (Input.GetKey(KeyCode.Space) && isJumping == true)
             {
-               if(jumpTimeCounter > 0)
+            anim.SetTrigger("isFall");
+
+            if (jumpTimeCounter > 0)
 
                 {
-                    jumpForce = 30;
-                
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
-                        jumpTimeCounter -= Time.deltaTime;
+                jumpForce = 30;
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+                jumpTimeCounter -= Time.deltaTime;
 
                 }
                 else 
@@ -152,7 +146,7 @@ public class Player : PhysicsCollision {
                     jumpForce = 0;
                     jumpTime = 0;
 
-                    anim.SetTrigger("Fall");
+                    anim.SetTrigger("isFall");
                     isGrounded = false;
                
                 }
@@ -164,32 +158,27 @@ public class Player : PhysicsCollision {
         if(!isWalking)
 
         {
-            anim.SetTrigger("Iddle");
+            anim.SetBool("isRunning",false);
         }
 
-        if (!isFacingRight)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-
-        }
-        else
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-
-
-        
+              
     }
     public void SetHorizontalRight()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         isFacingRight = true;
         speed.x = 5;
-        anim.SetTrigger("Runnig");
+        anim.SetBool("isRunning", true);
+
 
         transform.Translate(speed * Time.deltaTime);
 
     }
     public void SetHorizontalLeft()
     {
-        anim.SetTrigger("Runnig");
+        anim.SetBool("isRunning", true);
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+
 
         isFacingRight = false;
         speed.x = -5;
@@ -198,21 +187,7 @@ public class Player : PhysicsCollision {
 
     }
 
-    public  void HealingUpdate()
-    {
        
-        Debug.Log("PruebaUpdateHealing");
-        counterDissable += Time.deltaTime;
-        if (counterDissable > 4)
-        {
-            inputManager.SetActive(true);
-            state = State.Default;
-
-        }
-
-      
-    }
-   
 
 public void Dash()
     {
