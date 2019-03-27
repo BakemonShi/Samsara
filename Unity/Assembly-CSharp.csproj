@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\cascada\OffsetMaterialAnim.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -69,10 +68,7 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Info\F9ComeBack.cs" />
-    <Compile Include="Assets\Info\TranslateCamera.cs" />
-    <Compile Include="Assets\ModGode.cs" />
-    <Compile Include="Assets\PruebaDash.cs" />
+    <Compile Include="Assets\Materials\cascada\OffsetMaterialAnim.cs" />
     <Compile Include="Assets\Scrips\CameraFollow.cs" />
     <Compile Include="Assets\Scrips\CreeperBehaviour.cs" />
     <Compile Include="Assets\Scrips\Enemy\Bullet.cs" />
@@ -87,7 +83,9 @@
     <Compile Include="Assets\Scrips\Enemy\YakuzaGordo.cs" />
     <Compile Include="Assets\Scrips\EntrarPuerta.cs" />
     <Compile Include="Assets\Scrips\GameManager.cs" />
+    <Compile Include="Assets\Scrips\LevelLogic.cs" />
     <Compile Include="Assets\Scrips\MapeadoJoystick.cs" />
+    <Compile Include="Assets\Scrips\ModGode.cs" />
     <Compile Include="Assets\Scrips\Player\Abanico.cs" />
     <Compile Include="Assets\Scrips\Player\AttackSword.cs" />
     <Compile Include="Assets\Scrips\Player\DañoEspada.cs" />
@@ -103,7 +101,6 @@
     <Compile Include="Assets\Scrips\UI\LogoFade.cs" />
     <Compile Include="Assets\Scrips\UI\Mainmenu.cs" />
     <Compile Include="Assets\Scrips\UI\TextoParpadeante.cs" />
-    <Compile Include="Assets\Scripts\LevelLogic.cs" />
     <Compile Include="Assets\SettingsMenu.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <Reference Include="Cinemachine">
