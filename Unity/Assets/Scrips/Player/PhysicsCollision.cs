@@ -20,14 +20,7 @@ public class PhysicsCollision : MonoBehaviour {
     public float groundDistBtRay;
     public int groundNumRay;
     int i;
-
-    [Header("Wall Checker")]
-    public Vector3 wallOrigin;
-    public Vector3 wallDirection;
-    public float wallMaxDistance;
-    public LayerMask wallMask;
-    public float wallDistBtRay;
-    public int wallNumRay;
+    public bool isFacingRight = true;
 
     [Header("Ground")]
     public bool isGrounded;
@@ -35,19 +28,14 @@ public class PhysicsCollision : MonoBehaviour {
     public bool wasGrounded;
     public bool justNotGrounded;
 
-    [Header("Wall")]
-    public bool isTouchingWall;
-    public bool justTouchWall;
-    public bool wasTouchingWall;
-    public bool justNotTouchWall;
-    public bool isFacingRight;
+   
 
     public virtual void Initialize(GameManager gameManager)
     {
         gm = gameManager;
 
         rb = GetComponent<Rigidbody>();
-        isFacingRight = true;
+      
     }
     public virtual void MyFixedUpdate()
     {
@@ -56,7 +44,7 @@ public class PhysicsCollision : MonoBehaviour {
 
         if (disable) return;
         CheckGround();
-        CheckWall();
+       
     }
 
     void CheckGround()
@@ -90,46 +78,7 @@ public class PhysicsCollision : MonoBehaviour {
 
         if (wasGrounded && !isGrounded) justNotGrounded = true;
     }
-    void CheckWall()
-    {
-        wasTouchingWall = isTouchingWall;
-        isTouchingWall = false;
-        justTouchWall = false;
-        justNotTouchWall = false;
-
-        Vector3 rayPos = transform.position + wallOrigin;
-        int sing = 1;
-
-        for (i = 0; i <= wallNumRay; i++)
-        {
-            RaycastHit hit;
-            Ray ray = new Ray(rayPos, wallDirection);
-            if (Physics.Raycast(ray, out hit, wallMaxDistance, wallMask))
-            {
-                if (Mathf.Abs(hit.normal.x) >= 0.85f)
-                {
-                    isTouchingWall = true;
-                    if (!wasTouchingWall) justTouchWall = true;
-                    break;
-                }
-
-            }
-
-            rayPos.y += sing * ((i + 1) * wallDistBtRay);
-            sing *= -1;
-        }
-
-        if (wasTouchingWall && !isTouchingWall) justNotTouchWall = true;
-    }
-
-    protected void Flip()
-    {
-        isFacingRight = !isFacingRight;
-
-        if (isFacingRight) wallDirection.x = 1;
-        else wallDirection.x = -1;
-
-    }
+    
 
     protected void DisableChecker(float sec)
     {
@@ -139,7 +88,6 @@ public class PhysicsCollision : MonoBehaviour {
     private void OnDrawGizmos()
     {
         DrawRayGround();
-        DrawRayWall();
     }
     void DrawRayGround()
     {
@@ -156,21 +104,7 @@ public class PhysicsCollision : MonoBehaviour {
             sing *= -1;
         }
     }
-    void DrawRayWall()
-    {
-        if (!isTouchingWall) Gizmos.color = Color.red;
-        else Gizmos.color = Color.green;
-        Vector3 rayPos = transform.position + groundOrigin;
-        int sing = 1;
-
-        for (i = 0; i <= wallNumRay; i++)
-        {
-
-            Gizmos.DrawRay(rayPos, wallDirection * wallMaxDistance);
-            rayPos.y += sing * ((i + 1) * wallDistBtRay);
-            sing *= -1;
-        }
-    }
+    
     
     IEnumerator DisableCollisionDetection(float time)
     {

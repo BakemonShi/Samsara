@@ -99,7 +99,7 @@ public class Player : PhysicsCollision {
    
     void DefaultUpdate()
     {
-       animationAttack+=Time.deltaTime;
+     /*  animationAttack+=Time.deltaTime;
 
 
         if (animationAttack>1)
@@ -108,7 +108,7 @@ public class Player : PhysicsCollision {
             anim.SetBool("Running",true);
         
         }
-
+        */
         if (Input.GetKeyUp(KeyCode.Space))
         {
             anim.SetTrigger("Fall");
@@ -153,21 +153,18 @@ public class Player : PhysicsCollision {
              
             }
         
+        if((isWalking)&&(isGrounded)) anim.SetBool("isRunning", true);
 
-       
-        if(!isWalking)
+        else if ((!isWalking) && (isGrounded)) anim.SetBool("isRunning", false);
 
-        {
-            anim.SetBool("isRunning",false);
-        }
 
-              
+
     }
     public void SetHorizontalRight()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
         isFacingRight = true;
-        speed.x = 5;
+        speed.x = 7;
         anim.SetBool("isRunning", true);
 
 
@@ -181,7 +178,7 @@ public class Player : PhysicsCollision {
 
 
         isFacingRight = false;
-        speed.x = -5;
+        speed.x = -7;
         transform.Translate(speed*-1 * Time.deltaTime);
         
 
@@ -245,16 +242,13 @@ public void Dash()
 
     public void AttackBasic()
     {
-        anim.SetBool("Running", false);
         
-        if (attackType==1)
-        {
-            attackType=2;
+           // attackType=2;
             attackSword.espadaCollider();
-            anim.SetInteger("Attack",1);
-           
+            anim.SetTrigger("isAttack");
+          
 
-        }
+        /*
         else if(attackType==2)
         {
             attackType=3;
@@ -271,7 +265,7 @@ public void Dash()
             
 
         }
-       
+       */
     }
    
 
