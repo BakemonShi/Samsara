@@ -1,0 +1,13 @@
+Sam:
+Cuando le gopee el enemigo parpadea en Rojo
+El ataque de sam que haga daño al enemigo
+Enemigo:
+Animaciones 
+Que le quite vida a sam
+Boss:
+Revisarlo
+Camara:
+Arreglar los saltos que hace la camra
+Caamara segundo mundo
+Menu
+Rematar y hacer el guardado de partida

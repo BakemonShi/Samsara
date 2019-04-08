@@ -1,0 +1,138 @@
+﻿    using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HUD : MonoBehaviour
+{
+     
+    public Player player;
+
+    //public GameObject floresVidas;
+   public GameObject[] vidaMuerte;
+
+ 
+    public GameObject fullHp;
+
+    public GameObject pausePanel;
+
+    
+    public float countFullHp;
+    
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+      
+    }
+
+    private void Update()
+    {
+        countFullHp += Time.deltaTime;
+        if(countFullHp>2)
+        {
+            CloseFullHP();
+        }
+        deadLife();
+
+       
+    }
+    
+    
+    public void OpenFullHP()
+    {
+        countFullHp = 0;
+        fullHp.SetActive(true);
+    }
+
+    public void CloseFullHP()
+    {
+        fullHp.SetActive(false);
+    }
+
+    public void OpenPausePanel()
+    {
+        pausePanel.SetActive(true);
+    }
+
+    public void ClosePausePanel()
+    {
+        pausePanel.SetActive(false);
+    }
+    
+   
+    public void deadLife()
+    {
+
+        if (player.lifePlayer == 6)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(false);
+            vidaMuerte[0].SetActive(false);
+            //floresVidas[].SetActive(false);//preguntar a SErgio como cojer toda la aaray de gople
+        }
+        if (player.lifePlayer == 5)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(false);
+            vidaMuerte[0].SetActive(true);
+            //floresVidas[].SetActive(false);//preguntar a SErgio como cojer toda la aaray de gople
+        }
+        else if (player.lifePlayer == 4)
+
+        {
+
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(false);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
+        }
+        else if (player.lifePlayer == 3)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(false);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
+        }
+        else if (player.lifePlayer == 2)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(false);
+            vidaMuerte[3].SetActive(true);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
+        }
+        else if (player.lifePlayer == 1)
+
+        {
+            vidaMuerte[5].SetActive(false);
+            vidaMuerte[4].SetActive(true);
+            vidaMuerte[3].SetActive(true);
+            vidaMuerte[2].SetActive(true);
+            vidaMuerte[1].SetActive(true);
+            vidaMuerte[0].SetActive(true);
+        }
+       
+
+
+
+
+    }
+
+   
+}
