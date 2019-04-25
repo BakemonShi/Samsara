@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class HUD : MonoBehaviour
 {
@@ -34,11 +36,13 @@ public class HUD : MonoBehaviour
     
     public void OpenPausePanel()
     {
+        Time.timeScale = 0;
         pausePanel.SetActive(true);
     }
 
     public void ClosePausePanel()
     {
+        Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
     
@@ -111,10 +115,10 @@ public class HUD : MonoBehaviour
         }
        
 
-
-
-
+    }
+    public void PantallaPrincipal()
+    {
+        SceneManager.LoadScene(1);
     }
 
-   
 }

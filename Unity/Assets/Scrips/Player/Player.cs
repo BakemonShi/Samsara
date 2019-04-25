@@ -98,7 +98,7 @@ public class Player : PhysicsCollision {
    
     void DefaultUpdate()
     {
-
+        if (lifePlayer == 0) DeathUpdate();
         contadorDash += Time.deltaTime;
         if (contadorDash > 1)
         {
@@ -252,6 +252,7 @@ public void Dash()
     }
     public void DeathUpdate()
     {
+        anim.SetTrigger("   Muerte");
         lifePlayer = 0;
     }
 
@@ -290,13 +291,5 @@ public void Dash()
         lifePlayer = 999;
         
     }
-    public void ArreglarAnimacion ()
-    {
-
-        anim.SetBool("Running", true);
-        anim.SetInteger("Attack", 0);
-        anim.SetTrigger("Fall");
-
-
-    }
+    
 }

@@ -47,25 +47,27 @@ public class ModGode : MonoBehaviour
         }
     
        
-        if (Input.GetButtonDown("Select") || (Input.GetKeyDown(KeyCode.F10)) && modGode == false)
+        if (Input.GetKeyDown(KeyCode.F10) && modGode == false)
         {
             colldierSam.enabled = false;
             rb.useGravity = false;
             modGode = true;
-            player.GodModeHack();
+            
             Debug.Log("GodMode");
             inputManager.SetActive(false);
             
         }
-        else if  (Input.GetButtonDown("Select") || (Input.GetKeyDown(KeyCode.F10)) && modGode == true)
+         if (Input.GetKeyDown(KeyCode.F10) && modGode == true)
         {
+            Debug.Log("Quitar Modo dios");
             inputManager.SetActive(true);
             rb.useGravity = true;
 
             colldierSam.enabled = true;
+            inputManager.SetActive(true);
 
             modGode = false;
-            player.lifePlayer= 5;
+           
         }
     }
 }

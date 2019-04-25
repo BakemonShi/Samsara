@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     private HUD hud;
 
     public bool isPause;
-    public Vector3 speed;
+   
     
 
    
@@ -37,7 +37,9 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     public void MyUpdate()
     {
-      
+
+
+
 
 
         if (Input.GetKey(KeyCode.D))
@@ -63,7 +65,10 @@ public class InputManager : MonoBehaviour
             player.isWalking = false;
         }
 
-      
+
+
+
+
 
 
         if ((Input.GetKeyDown(KeyCode.J)) || (Input.GetButtonDown("R1"))) //dash
@@ -73,45 +78,17 @@ public class InputManager : MonoBehaviour
            
           
         if  (Input.GetKeyDown(KeyCode.P))
-            {
-                Debug.Log("Pulsar Escape");
-            if(!isPause)
-            {
-                Debug.Log("Pausa");
+        {
+         
                 hud.OpenPausePanel();
-                isPause = true;
-                Time.timeScale = 0;
-            }
-             if (isPause)
-            {
-                
-                hud.ClosePausePanel();
-                isPause = false;
-
-                Time.timeScale = 1;
-            }
-
-            /*   if (!gm.isPaused)
-              {
-                  hud.OpenPausePanel();
-                  //gm.isPaused = true;
-                //  Time.timeScale = 0;
-              }
-                if (gm.isPaused)
-
-              {
-                  Time.timeScale = 1;
-
-                  hud.ClosePausePanel();
-                  gm.isPaused = false;
-              }
-              */
+          
         }
-            
+
+       
 
 
 
-        }
+    }
     }
 
 
