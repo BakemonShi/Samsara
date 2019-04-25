@@ -12,7 +12,8 @@ public class Player : PhysicsCollision {
     public enum State {Default, Dash, Death }; // Default, Dash, Healing, Death
     public State state;
 
-  
+    public GameObject damageFX;
+    public Vector3 transformFX;
     [Header("Properties")]
     public GameObject inputManager;
     public Vector3 speed;
@@ -53,13 +54,12 @@ public class Player : PhysicsCollision {
 
 
 
-
     public override void Initialize(GameManager gameManager)
     {
         base.Initialize(gameManager);
         rb = GetComponent<Rigidbody>();
 
-        lifePlayer = 5;
+      
 
         speed.x = 10;
        
@@ -115,7 +115,10 @@ public class Player : PhysicsCollision {
         {
             anim.SetBool("isFly", false);
         }
-       
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            Instantiate(damageFX, transform.position,Quaternion.identity);
+        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
          //   anim.SetTrigger("Fall");
@@ -143,7 +146,7 @@ public class Player : PhysicsCollision {
             if (jumpTimeCounter > 0)
 
                 {
-                jumpForce = 20;
+                jumpForce = 14;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
                 jumpTimeCounter -= Time.deltaTime;
 
@@ -244,7 +247,7 @@ public void Dash()
     public void Damage()
     {
         lifePlayer--;
-        anim.SetTrigger("Damage");
+        Instantiate(damageFX, (new Vector3 (transform.position.x,transform.position.y+0.8f,transform.position.z)), Quaternion.identity);
 
     }
     public void DeathUpdate()
@@ -255,16 +258,7 @@ public void Dash()
      
     
 
-    public void AttackBasic()
-    {
-        
-          
-            attackSword.espadaCollider();
-            anim.SetTrigger("isAttack");
-          
-
-    }
-   
+      
 
     #region Sets
 

@@ -7,7 +7,7 @@ public class YakuzaDebil : EnemigoBase
 {
     [Header("Enemy Properties")]
 
-    public float counterAttack;
+   // public float counterAttack;
     public float radiusAttack;
     public LayerMask targetMaskAttack;
     public float lifeYakuzaDebil;
@@ -17,11 +17,13 @@ public class YakuzaDebil : EnemigoBase
     public bool isStun;
     public float counterStun;
 
+    public GameObject deathFX;
+
 
     protected override void Start()
     {
         base.Start();
-        counterAttack = 0;
+        counterAttackYakuza = 0;
 
 
     }
@@ -30,7 +32,7 @@ public class YakuzaDebil : EnemigoBase
     {
         base.Update();
         Attack();
-        counterAttack += Time.deltaTime;
+        
 
         if (lifeYakuzaDebil <= 0)
         {
@@ -53,22 +55,24 @@ public class YakuzaDebil : EnemigoBase
     }
     private void Attack()
     {
-
+        
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radiusAttack, targetMaskAttack);
 
 
         for (int i = 0; i <= 1; i++)
         {
-
             if (i < hitColliders.Length)
             {
-                if (counterAttack >= 3)
+
+                if (counterAttackYakuza >= 3)
                 {
+                    anim.SetTrigger("isAttack");
+
                     Debug.Log("yay");
-                    player.lifePlayer--;
+                    player.Damage();
                     Debug.Log("works");
-                    counterAttack = 0;
+                    counterAttackYakuza = 0;
                 }
 
             }
@@ -86,8 +90,14 @@ public class YakuzaDebil : EnemigoBase
 
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
 
+        if (other.tag == "Espada")
+        {
+            Instantiate(deathFX, (new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z)), Quaternion.identity);
+            Destroy(this.gameObject);
 
-
-
+        }
+    }
 }

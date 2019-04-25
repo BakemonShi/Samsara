@@ -12,7 +12,8 @@ public class EnemigoBase : MonoBehaviour {
    
     private float timeCounter;
     public float idleTime;
-    
+    public float counterAttackYakuza;
+    public Animator anim;
 
 
     [Header("Enemies Properties")]
@@ -35,6 +36,7 @@ public class EnemigoBase : MonoBehaviour {
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         agent = GetComponent<NavMeshAgent>();
      
         agent.stoppingDistance=2;
@@ -105,9 +107,9 @@ public class EnemigoBase : MonoBehaviour {
             SetIdle();
             return;
         }
-
-       
+        counterAttackYakuza += Time.deltaTime;
         agent.SetDestination(targetTransform.position);
+        
     }
     
 
@@ -119,14 +121,15 @@ public class EnemigoBase : MonoBehaviour {
         agent.isStopped = true;
         radius = 5;
         int r = Random.Range(1, 5);
-   
-        
 
+        anim.SetBool("isWalk", false);
+        
         state = State.Idle;
     }
     void SetPatrol()
     {
-      
+        anim.SetBool("isWalk", true);
+
         agent.isStopped = false;
         agent.stoppingDistance = 0;
         
@@ -134,6 +137,7 @@ public class EnemigoBase : MonoBehaviour {
     }
     void SetChase()
     {
+        anim.SetBool("isWalk", true);
 
         agent.isStopped = false;
       
@@ -143,7 +147,8 @@ public class EnemigoBase : MonoBehaviour {
     }
      void SetAttack()
     {
-       
+        
+
         agent.isStopped = true;
         //sound.Play(9, 1);
         isAttack = true;

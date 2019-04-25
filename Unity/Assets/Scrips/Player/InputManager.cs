@@ -5,15 +5,16 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     private Player player;
-    public Abanico abanico;
-    public AttackSword sword;
+   
     private GameManager gm;
 
     private HUD hud;
 
+    public bool isPause;
+    public Vector3 speed;
     
 
-    private bool isPause=false;
+   
 
 
 
@@ -27,13 +28,16 @@ public class InputManager : MonoBehaviour
       
 
         hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        isPause = false;
+      
+
         
     }
 
     // Update is called once per frame
     public void MyUpdate()
     {
-
+      
 
 
         if (Input.GetKey(KeyCode.D))
@@ -57,51 +61,52 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A))
         {
             player.isWalking = false;
-
-
         }
 
+      
 
-        if  ((Input.GetButtonDown("X"))|| (Input.GetKeyDown(KeyCode.Space)))
-        {
-         //   player.Jump();
-        }
-       
 
-        if (Input.GetKeyDown(KeyCode.J) || (Input.GetButtonDown("Quadrado")))
-        {
-            player.AttackBasic();
-
-        }
-
-        if ((Input.GetKeyDown(KeyCode.E)) || (Input.GetButtonDown("R1"))) //dash
+        if ((Input.GetKeyDown(KeyCode.J)) || (Input.GetButtonDown("R1"))) //dash
         {
             player.Dash();
         }
            
-            
           
-           
-            if (Input.GetButtonDown("Start") || (Input.GetKeyDown(KeyCode.Escape)))
+        if  (Input.GetKeyDown(KeyCode.P))
             {
                 Debug.Log("Pulsar Escape");
-                if (!isPause)
-                {
-
-                    hud.OpenPausePanel();
-                    isPause = true;
-                    Time.timeScale = 0;
-                }
-                else if (isPause)
-
-                {
-                    Time.timeScale = 1;
-
-                    hud.ClosePausePanel();
-                    isPause = false;
-                }
-
+            if(!isPause)
+            {
+                Debug.Log("Pausa");
+                hud.OpenPausePanel();
+                isPause = true;
+                Time.timeScale = 0;
             }
+             if (isPause)
+            {
+                
+                hud.ClosePausePanel();
+                isPause = false;
+
+                Time.timeScale = 1;
+            }
+
+            /*   if (!gm.isPaused)
+              {
+                  hud.OpenPausePanel();
+                  //gm.isPaused = true;
+                //  Time.timeScale = 0;
+              }
+                if (gm.isPaused)
+
+              {
+                  Time.timeScale = 1;
+
+                  hud.ClosePausePanel();
+                  gm.isPaused = false;
+              }
+              */
+        }
             
 
 

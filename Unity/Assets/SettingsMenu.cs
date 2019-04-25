@@ -14,8 +14,8 @@ public class SettingsMenu : MonoBehaviour {
     public void Start()
     {
        
-        Screen.SetResolution(1280, 720,Screen.fullScreen);
-        resolutionDropdown.value = 0;
+        Screen.SetResolution(1920 , 1080,Screen.fullScreen);
+       // resolutionDropdown.value = 0;
         
     }
     public void SetResolution (int resolutionIndex)
