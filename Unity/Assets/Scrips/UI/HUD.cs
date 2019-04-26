@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class HUD : MonoBehaviour
 {
      
@@ -13,11 +12,12 @@ public class HUD : MonoBehaviour
     //public GameObject floresVidas;
    public GameObject[] vidaMuerte;
 
+ 
+   
 
     public GameObject pausePanel;
 
-    
-   
+ 
     
 
     private void Start()
@@ -26,23 +26,24 @@ public class HUD : MonoBehaviour
       
     }
 
-    public void Update()
+    private void Update()
     {
-        
+      
         deadLife();
 
+       
     }
     
     
+   
+
     public void OpenPausePanel()
     {
-        Time.timeScale = 0;
         pausePanel.SetActive(true);
     }
 
     public void ClosePausePanel()
     {
-        Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
     
@@ -72,7 +73,7 @@ public class HUD : MonoBehaviour
             vidaMuerte[0].SetActive(true);
             //floresVidas[].SetActive(false);//preguntar a SErgio como cojer toda la aaray de gople
         }
-         if (player.lifePlayer == 4)
+        else if (player.lifePlayer == 4)
 
         {
 
@@ -83,7 +84,7 @@ public class HUD : MonoBehaviour
             vidaMuerte[1].SetActive(true);
             vidaMuerte[0].SetActive(true);
         }
-         if (player.lifePlayer == 3)
+        else if (player.lifePlayer == 3)
 
         {
             vidaMuerte[5].SetActive(false);
@@ -93,7 +94,7 @@ public class HUD : MonoBehaviour
             vidaMuerte[1].SetActive(true);
             vidaMuerte[0].SetActive(true);
         }
-         if (player.lifePlayer == 2)
+        else if (player.lifePlayer == 2)
 
         {
             vidaMuerte[5].SetActive(false);
@@ -103,7 +104,7 @@ public class HUD : MonoBehaviour
             vidaMuerte[1].SetActive(true);
             vidaMuerte[0].SetActive(true);
         }
-         if (player.lifePlayer == 1)
+        else if (player.lifePlayer == 1)
 
         {
             vidaMuerte[5].SetActive(false);
@@ -115,10 +116,13 @@ public class HUD : MonoBehaviour
         }
        
 
-    }
-    public void PantallaPrincipal()
-    {
-        SceneManager.LoadScene(1);
+
+
+
     }
 
+    public void PantallaPrincipal()
+    {
+        SceneManager.LoadScene(1); ;
+    }
 }

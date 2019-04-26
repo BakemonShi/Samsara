@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour {
     public InputManager inputManager;
     public HUD Hud { get; private set; }
 
-   
+    public Vector2 moveCamera;
 
 
-   // public bool isPaused ;
+    public bool isPaused = false;
 
     public void Awake()
     {
@@ -30,14 +30,11 @@ public class GameManager : MonoBehaviour {
    
      void Update()
     {
-
-        player.MyUpdate();
-        inputManager.MyUpdate();
-        /* if (!isPaused)
-         {
-
-         }
-         */
+        if (!isPaused)
+        {
+            player.MyUpdate();
+            inputManager.MyUpdate();
+        }
         //else inputManager.ResumeUpdate();
 
     }

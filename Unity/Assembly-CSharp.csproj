@@ -78,7 +78,6 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
-    <Compile Include="Assets\lor3en.cs" />
     <Compile Include="Assets\Materials\cascada\OffsetMaterialAnim.cs" />
     <Compile Include="Assets\Scrips\CameraFollow.cs" />
     <Compile Include="Assets\Scrips\CreeperBehaviour.cs" />
@@ -111,6 +110,7 @@
     <Compile Include="Assets\Scrips\UI\HUD.cs" />
     <Compile Include="Assets\Scrips\UI\LogoFade.cs" />
     <Compile Include="Assets\Scrips\UI\Mainmenu.cs" />
+    <Compile Include="Assets\Scrips\UI\MovimientoUi.cs" />
     <Compile Include="Assets\Scrips\UI\TextoParpadeante.cs" />
     <Compile Include="Assets\Scrips\UI\VolumeChange.cs" />
     <Compile Include="Assets\SettingsMenu.cs" />
