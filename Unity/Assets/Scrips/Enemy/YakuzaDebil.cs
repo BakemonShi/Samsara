@@ -65,7 +65,7 @@ public class YakuzaDebil : EnemigoBase
             if (i < hitColliders.Length)
             {
 
-                if (counterAttackYakuza >= 3)
+                if (counterAttackYakuza >= 1)
                 {
                     anim.SetTrigger("isAttack");
 

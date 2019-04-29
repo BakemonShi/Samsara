@@ -24,7 +24,8 @@ public class SettingsMenu : MonoBehaviour {
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);*/
         if(resolutionDropdown.value == 0)
         {
-            Screen.SetResolution(1280, 720, Screen.fullScreen);
+             Screen.SetResolution(1280, 720, Screen.fullScreen);
+            
         }
         else if(resolutionDropdown.value == 1)
         {
@@ -32,7 +33,7 @@ public class SettingsMenu : MonoBehaviour {
         }
         else if(resolutionDropdown.value == 2)
         {
-            Screen.SetResolution(1920, 1080, Screen.fullScreen);
+           Screen.SetResolution(1920, 1080, Screen.fullScreen);
         }
 
 

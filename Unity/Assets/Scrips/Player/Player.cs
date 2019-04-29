@@ -146,7 +146,7 @@ public class Player : PhysicsCollision {
             if (jumpTimeCounter > 0)
 
                 {
-                jumpForce = 14;
+                jumpForce = 12;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
                 jumpTimeCounter -= Time.deltaTime;
 

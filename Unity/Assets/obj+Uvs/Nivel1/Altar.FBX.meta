@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 8797d8761b1d04a468a3063f9892d784
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: AltarTemplo
+    100004: Base
+    100006: Box1162
+    100008: Box1163
+    100010: Box1164
+    100012: Box1165
+    100014: Box1174
+    100016: Box1175
+    100018: Box1176
+    100020: Box1177
+    100022: Box1178
+    100024: Box1179
+    100026: Box1180
+    100028: Box1181
+    100030: Box767
+    100032: Maderas
+    100034: Object039
+    100036: Object040
+    100038: Object041
+    100040: Object042
+    100042: Object051
+    100044: Object052
+    100046: Object053
+    100048: Object054
+    100050: Object055
+    100052: Object056
+    100054: Object057
+    100056: Object058
+    100058: Techo
+    100060: TechoAltar
+    100062: TechoAltar003
+    100064: TechoAltar004
+    400000: //RootNode
+    400002: AltarTemplo
+    400004: Base
+    400006: Box1162
+    400008: Box1163
+    400010: Box1164
+    400012: Box1165
+    400014: Box1174
+    400016: Box1175
+    400018: Box1176
+    400020: Box1177
+    400022: Box1178
+    400024: Box1179
+    400026: Box1180
+    400028: Box1181
+    400030: Box767
+    400032: Maderas
+    400034: Object039
+    400036: Object040
+    400038: Object041
+    400040: Object042
+    400042: Object051
+    400044: Object052
+    400046: Object053
+    400048: Object054
+    400050: Object055
+    400052: Object056
+    400054: Object057
+    400056: Object058
+    400058: Techo
+    400060: TechoAltar
+    400062: TechoAltar003
+    400064: TechoAltar004
+    2100000: 'Material #4'
+    2100002: 'Material #2'
+    2100004: 'Material #6'
+    2100006: 'Material #3'
+    2100008: 'Material #5'
+    2300000: Base
+    2300002: Box1162
+    2300004: Box1163
+    2300006: Box1164
+    2300008: Box1165
+    2300010: Box1174
+    2300012: Box1175
+    2300014: Box1176
+    2300016: Box1177
+    2300018: Box1178
+    2300020: Box1179
+    2300022: Box1180
+    2300024: Box1181
+    2300026: Box767
+    2300028: Maderas
+    2300030: Object039
+    2300032: Object040
+    2300034: Object041
+    2300036: Object042
+    2300038: Object051
+    2300040: Object052
+    2300042: Object053
+    2300044: Object054
+    2300046: Object055
+    2300048: Object056
+    2300050: Object057
+    2300052: Object058
+    2300054: Techo
+    3300000: Base
+    3300002: Box1162
+    3300004: Box1163
+    3300006: Box1164
+    3300008: Box1165
+    3300010: Box1174
+    3300012: Box1175
+    3300014: Box1176
+    3300016: Box1177
+    3300018: Box1178
+    3300020: Box1179
+    3300022: Box1180
+    3300024: Box1181
+    3300026: Box767
+    3300028: Maderas
+    3300030: Object039
+    3300032: Object040
+    3300034: Object041
+    3300036: Object042
+    3300038: Object051
+    3300040: Object052
+    3300042: Object053
+    3300044: Object054
+    3300046: Object055
+    3300048: Object056
+    3300050: Object057
+    3300052: Object058
+    3300054: Techo
+    4300000: Box767
+    4300002: Maderas
+    4300004: Techo
+    4300006: Base
+    4300008: Object039
+    4300010: Object042
+    4300012: Box1162
+    4300014: Box1164
+    4300016: Object040
+    4300018: Box1163
+    4300020: Object041
+    4300022: Box1165
+    4300024: Box1174
+    4300026: Box1175
+    4300028: Box1176
+    4300030: Box1177
+    4300032: Object051
+    4300034: Object052
+    4300036: Object053
+    4300038: Object054
+    4300040: Box1178
+    4300042: Box1179
+    4300044: Box1180
+    4300046: Box1181
+    4300048: Object055
+    4300050: Object056
+    4300052: Object057
+    4300054: Object058
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Basetex
+    second: {fileID: 2800000, guid: c5660222c3ce5bc44aa8296f82c9d210, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Piedrastex
+    second: {fileID: 2800000, guid: b2a17ead1a463cb48ba290990060b573, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Techitotex
+    second: {fileID: 2800000, guid: 890f8960154203b42b329ecea03f9b94, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TechoTemplotex
+    second: {fileID: 2800000, guid: 35d4556187e0cc542a6efd2577cd6c3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: maderasaltartex
+    second: {fileID: 2800000, guid: 592f278c5dc26f24b99ad6a3748b8efb, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

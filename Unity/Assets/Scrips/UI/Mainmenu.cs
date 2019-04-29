@@ -7,16 +7,20 @@ public class Mainmenu : MonoBehaviour {
 
     public GameObject menuPrincipal;
     public GameObject gameMenu;
-
+    public GameObject controles;
     public GameObject optionsMenu;
-    public GameObject infoMenu;
+    public GameObject video;
+    
+    //public GameObject infoMenu;
     public int menuNum=1;
     private void Start()
     {
         menuPrincipal.SetActive(true);
         gameMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        infoMenu.SetActive(false);
+       // infoMenu.SetActive(false);
+        video.SetActive(false);
+        controles.SetActive(false);
 
     }
     private void Update()
@@ -31,28 +35,45 @@ public class Mainmenu : MonoBehaviour {
         menuPrincipal.SetActive(true);
         gameMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        infoMenu.SetActive(false);
+        //infoMenu.SetActive(false);
+        video.SetActive(false);
+
         }
          public  void GameMenu()
         {
         menuPrincipal.SetActive(false);
         gameMenu.SetActive(true);
         optionsMenu.SetActive(false);
-        infoMenu.SetActive(false);
+        //infoMenu.SetActive(false);
+        video.SetActive(false);
+        }
+         
+        public  void NewGame()
+        {
+        menuPrincipal.SetActive(false);
+        gameMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        //infoMenu.SetActive(false);
+        video.SetActive(true);
+
         }
         public  void OptionsMenu()
         {
         menuPrincipal.SetActive(false);
         gameMenu.SetActive(false);
         optionsMenu.SetActive(true);
-        infoMenu.SetActive(false);
+        //infoMenu.SetActive(false);
+        video.SetActive(false);
+
         }
         public  void InfoMenu()
         {
         menuPrincipal.SetActive(false);
         gameMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        infoMenu.SetActive(true);
+        //infoMenu.SetActive(true);
+        video.SetActive(false);
+
         }
     public void PlayGame()
     {
