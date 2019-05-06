@@ -51,7 +51,8 @@ public class Player : PhysicsCollision {
 
     public int attackType;
     public float animationAttack;
-
+    [Header("Sound")]
+    public PlaySound sound;
 
 
     public override void Initialize(GameManager gameManager)
@@ -136,7 +137,7 @@ public class Player : PhysicsCollision {
             jumpTimeCounter = jumpTime;
             rb.velocity = new Vector3(rb.velocity.x, 0, 0);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-           
+            sound.Play(0, 1, 1, false);
         }
 
             if (Input.GetKey(KeyCode.Space) && isJumping == true)
@@ -248,7 +249,7 @@ public void Dash()
     {
         lifePlayer--;
         Instantiate(damageFX, (new Vector3 (transform.position.x,transform.position.y+0.8f,transform.position.z)), Quaternion.identity);
-
+        sound.Play(0, 1, 1, false);
     }
     public void DeathUpdate()
     {
@@ -276,6 +277,7 @@ public void Dash()
     {
         anim.SetTrigger("Dash");
         state = State.Dash;
+        sound.Play(0, 1, 1, false);
     }
 
 

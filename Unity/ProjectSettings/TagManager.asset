@@ -18,6 +18,8 @@ TagManager:
   - RomperSuelo
   - Camera2
   - Camera3
+  - FxTemporaire
+  - AudioManager
   layers:
   - Default
   - TransparentFX
